@@ -46,4 +46,4 @@ ind$SuperPopulation[ind$Population == "BEB"] <- "SAS"
 ind$SuperPopulation[ind$Population == "STU"] <- "SAS"
 ind$SuperPopulation[ind$Population == "ITU"] <- "SAS"
 
-save(list = c("ind"), file = "data/sysdata.rda")
+save(list = c("ind"), file = "R/sysdata.rda")

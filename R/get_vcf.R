@@ -1,7 +1,27 @@
-#' Get data in a remote VCF file for a genomic region.
+#' Get data for a genomic region from a remote VCF file.
 #' 
-#' Returns a list with two dataframes:
+#' Returns a list with three dataframes for individuals, SNPs, and genotypes.
 #' 
+#' Currently, this is hard-coded to access 1000 Genomes phase3 data hosted by
+#' Brian Browning (author of BEAGLE):
+#' 
+#' \url{http://bochet.gcc.biostat.washington.edu/beagle/1000_Genomes_phase3_v5a/}
+#' 
+#' This implementation discards multi-allelic markers that have a "," in the
+#' ALT column.
+#' 
+#' The \code{pop} can be any of: ACB, ASW, BEB, CDX, CEU, CHB, CHS, CLM, ESN,
+#' FIN, GBR, GIH, GWD, IBS, ITU, JPT, KHV, LWK, MSL, MXL, PEL, PJL, PUR, STU,
+#' TSI, YRI. It can also be any super-population: AFR, AMR, EAS, EUR, SAS.
+#'
+#' Find more details here:
+#' \url{http://www.1000genomes.org/faq/which-populations-are-part-your-study}
+#' 
+#' @param chrom a chromosome name (1-22,X) without "chr"
+#' @param start a positive integer indicating the start of a genomic region
+#' @param end a positive integer indicating the end of a genomic region
+#' @param pop the name of a 1000 Genomes population (AMR,AFR,ASN,EUR,...)
+#' @return A list with two dataframes:
 #' \describe{
 #'   \item{meta}{First 8 columns of the VCF file: CHROM, POS, ID, REF, ALT,
 #'    QUAL, FILTER, INFO}
@@ -10,21 +30,6 @@
 #'    columns for each individual.}
 #' }
 #' 
-#' Currently, this is hard-coded to access 1000 Genomes phase3 data hosted by
-#' Brian Browning (author of BEAGLE):
-#' 
-#' \url{http://bochet.gcc.biostat.washington.edu/beagle/1000_Genomes_phase3_v5a/}
-#' 
-#' In the future, it may be sensible to modify this code to take data from any
-#' VCF file out there on the internet.
-#' 
-#' This implementation discards multi-allelic markers that have a "," in the
-#' ALT column.
-#'
-#' @param chrom a chromosome name (1-22,X) without "chr"
-#' @param start a positive integer indicating the start of a genomic region
-#' @param end a positive integer indicating the end of a genomic region
-#' @param pop the name of a 1000 Genomes population (AMR,AFR,ASN,EUR,...)
 #' @export
 get_vcf <- function(chrom, start, end, pop = "EUR") {
   

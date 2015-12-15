@@ -1,13 +1,13 @@
 Package: proxysnps
 Title: Get proxy SNPs for a SNP in the 1000 Genomes Project
 Version: 0.0.1
-Authors@R: c(
-    person("Kamil", "Slowikowski", role = c("aut", "cre"), email = "kslowikowski@fas.harvard.edu")
-    )
+Authors@R: c( person("Kamil", "Slowikowski", role = c("aut", "cre"), email =
+    "kslowikowski@fas.harvard.edu") )
 Description: This package implements functions to query remote VCF files. You
     can use it to find proxy SNPs in linkage disequilibrium with SNPs of
     interest or to calculate allele frequencies in different populations.
-Depends: R (>= 3.1.2)
+Depends:
+    R (>= 3.1.2)
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/slowkow/proxysnps

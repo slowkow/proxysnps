@@ -1,18 +1,6 @@
 #' Get proxy SNPs for a SNP at a given genomic position.
 #' 
-#' Returns a dataframe with columns:
-#' 
-#' \describe{
-#'   \item{CHROM}{Chromosome name, e.g. "1"}
-#'   \item{POS}{Position, e.g. 583090}
-#'   \item{ID}{Identifier, e.g. "rs11063140"}
-#'   \item{REF}{Reference allele, e.g. "A"}
-#'   \item{ALT}{Alternative allele, e.g. "G"}
-#'   \item{MAF}{Minor allele frequency, e.g. 0.1}
-#'   \item{R.squared}{Squared Pearson correlation coefficient, e.g. 1.0}
-#'   \item{D.prime}{D prime value, e.g. 1.0}
-#'   \item{CHOSEN}{Binary indicator set to TRUE for the SNP of interest}
-#' }
+#' Returns a dataframe with proxy SNPs.
 #' 
 #' Currently, this is hard-coded to access 1000 Genomes phase3 data hosted by
 #' Brian Browning (author of BEAGLE):
@@ -22,14 +10,31 @@
 #' This implementation discards multi-allelic markers that have a "," in the
 #' ALT column.
 #'
-#' In the future, it may be sensible to modify this code to take data from any
-#' VCF file out there on the internet, or to take data from local VCF files.
+#' The \code{pop} can be any of: ACB, ASW, BEB, CDX, CEU, CHB, CHS, CLM, ESN,
+#' FIN, GBR, GIH, GWD, IBS, ITU, JPT, KHV, LWK, MSL, MXL, PEL, PJL, PUR, STU,
+#' TSI, YRI. It can also be any super-population: AFR, AMR, EAS, EUR, SAS.
+#' 
+#' Find more details here:
+#' \url{http://www.1000genomes.org/faq/which-populations-are-part-your-study}
 #' 
 #' @param chrom a chromosome name (1-22,X) without "chr"
 #' @param pos a positive integer indicating the position of a SNP
 #' @param window_size a positive integer indicating the size of the window
 #' @param pop the name of a 1000 Genomes population (AMR,AFR,ASN,EUR,...). Set
 #'        this to NA to use all populations.
+#' @return A dataframe with the following columns:
+#'   \describe{
+#'     \item{CHROM}{Chromosome name, e.g. "1"}
+#'     \item{POS}{Position, e.g. 583090}
+#'     \item{ID}{Identifier, e.g. "rs11063140"}
+#'     \item{REF}{Reference allele, e.g. "A"}
+#'     \item{ALT}{Alternative allele, e.g. "G"}
+#'     \item{MAF}{Minor allele frequency, e.g. 0.1}
+#'     \item{R.squared}{Squared Pearson correlation coefficient, e.g. 1.0}
+#'     \item{D.prime}{D prime value, e.g. 1.0}
+#'     \item{CHOSEN}{Binary indicator set to TRUE for the SNP of interest}
+#'   }
+#' 
 #' @export
 get_proxies<- function(chrom, pos, window_size = 1e5, pop = "EUR") {
 #   chrom = "12"
