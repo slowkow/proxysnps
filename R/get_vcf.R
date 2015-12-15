@@ -21,8 +21,12 @@
 #' @param start a positive integer indicating the start of a genomic region
 #' @param end a positive integer indicating the end of a genomic region
 #' @param pop the name of a 1000 Genomes population (AMR,AFR,ASN,EUR,...)
-#' @return A list with two dataframes:
+#' @return A list with three dataframes:
 #' \describe{
+#'   \item{ind}{A dataframe with information about individuals: Family.ID,
+#'    Individual.ID, Paternal.ID, Maternal.ID, Gender, Population,
+#'    Relationship, Siblings, Second.Order, Third.Order, Other.Comments,
+#'    SuperPopulation}
 #'   \item{meta}{First 8 columns of the VCF file: CHROM, POS, ID, REF, ALT,
 #'    QUAL, FILTER, INFO}
 #'   \item{geno}{Columns 10 onward of the VCF file. All genotypes are converted
@@ -30,6 +34,10 @@
 #'    columns for each individual.}
 #' }
 #' 
+#' @examples
+#' vcf <- get_vcf(chrom = "12", start = 533090, end = 623090, pop = "AFR")
+#' names(vcf)
+#'  
 #' @export
 get_vcf <- function(chrom, start, end, pop = "EUR") {
   

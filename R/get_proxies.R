@@ -35,6 +35,10 @@
 #'     \item{CHOSEN}{Binary indicator set to TRUE for the SNP of interest}
 #'   }
 #' 
+#' @examples
+#' d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR")
+#' head(d)
+#'  
 #' @export
 get_proxies<- function(chrom, pos, window_size = 1e5, pop = "EUR") {
 #   chrom = "12"
@@ -86,19 +90,25 @@ get_proxies<- function(chrom, pos, window_size = 1e5, pop = "EUR") {
   return(retval[order(retval$R.squared, decreasing = TRUE),])
 }
 
-#' Compute two commonly used linkage disequilibrium statistics and return
-#' a list:
+#' Compute two commonly used linkage disequilibrium statistics.
 #' 
+#' Compute R.squared and D.prime for two binary numeric vectors.
+#' 
+#' Find more details here:
+#' \url{https://en.wikipedia.org/wiki/Linkage_disequilibrium}
+#' 
+#' @param x a numeric vector of ones and zeros
+#' @param y a numeric vector of ones and zeros
+#' @return A list with two items:
 #' \describe{
 #'  \item{R.squared}{Squared Pearson correlation coefficient.}
 #'  \item{D.prime}{Coefficient of linkage disequilibrium D divided by the
 #'   theoretical maximum.}
 #' }
 #' 
-#' More details here: \url{https://en.wikipedia.org/wiki/Linkage_disequilibrium}
+#' @examples
+#' compute_ld(c(0,0,0,1,1,1), c(1,1,1,1,0,0))
 #' 
-#' @param x a numeric vector of ones and zeros
-#' @param y a numeric vector of ones and zeros
 #' @export
 compute_ld <- function(x, y) {
   stopifnot(all(names(table(x)) %in% c("0", "1")))
