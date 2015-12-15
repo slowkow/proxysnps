@@ -1,0 +1,71 @@
+```{r libraries, echo=FALSE, results='hide', warning=FALSE, error=FALSE, message=FALSE, cache=FALSE}
+library(knitr)
+opts_chunk$set(
+  cache = TRUE,
+  autodep = TRUE,
+  echo = FALSE,
+  warning = FALSE,
+  error = FALSE,
+  message = FALSE,
+  cache.path = "cache/proxysnps/",
+  fig.path = "figures/proxysnps/",
+  concordance = TRUE
+)
+```
+
+## Get proxy SNPs
+
+Get the `R.squared` and `D.prime` between our [SNP] of interest `rs11063140` at
+position 583,090 ([GRCh37]) and all other SNPs from phase 3 of the [1000
+Genomes Project][1000genomes] within a 100 kilobase window:
+
+```{r get_proxies, echo=TRUE}
+library(proxysnps)
+d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR")
+kable(head(d))
+```
+
+## Plot the linkage disequilibirum (LD)
+
+Plot the [LD] between our SNP and all others within a 100 kilobase window:
+  
+```{r plot_r2, echo=TRUE, fig.width=12, fig.height=4}
+library(ggplot2)
+ggplot() +
+  geom_point(data = d, aes(x = POS, y = R.squared), size = 2) +
+  geom_text(
+    data = d[d$CHOSEN,,drop=FALSE],
+    aes(x = POS, y = R.squared, label = ID),
+    hjust = -0.1, size = 6
+  ) +
+  theme_bw(base_size = 18) +
+  labs(x = "Position", y = bquote("R"^2))
+```
+
+## Get data for a genomic region
+
+Get data describing African individuals, metadata for each SNP, and
+genotypes for each SNP and each individual:
+
+```{r get_vcf, echo=TRUE}
+vcf <- get_vcf(chrom = "12", start = 533090, end = 623090, pop = "AFR")
+names(vcf)
+```
+
+```{r vcf_ind_table, echo=TRUE}
+kable(vcf$ind[1:5,])
+```
+
+```{r vcf_meta_table, echo=TRUE}
+kable(vcf$meta[10:15,])
+```
+
+```{r vcf_geno_table, echo=TRUE}
+kable(vcf$geno[10:15,1:5])
+```
+
+[LD]: https://en.wikipedia.org/wiki/Linkage_disequilibrium
+[SNP]: https://en.wikipedia.org/wiki/Single-nucleotide_polymorphism
+
+[1000genomes]: http://www.1000genomes.org/
+[GRCh37]: http://www.1000genomes.org/faq/which-reference-assembly-do-you-use

@@ -134,8 +134,8 @@ get_vcf <- function(chrom, start, end, pop = "EUR") {
   
   retval <- list()
   
-  load("data/ind.rda")
-  retval$ind <- ind[colnames(vcf)[10:ncol(vcf)],]
+  #load("data/sysdata.rda")
+  retval$ind <- proxysnps::ind[colnames(vcf)[10:ncol(vcf)],]
   
   # Separate the metadata from the genotypes.
   retval$meta <- vcf[,1:8]
