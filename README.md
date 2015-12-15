@@ -13,6 +13,15 @@ install.packages("devtools")
 devtools::install_github("slowkow/proxysnps")
 ```
 
+## Data
+
+This package provides easy access to 1000 Genomes Project VCF files that have
+been filtered by [Brian Browning][browning], available
+[here][beagle_1000genomes].
+
+[browning]: https://faculty.washington.edu/browning/
+[beagle_1000genomes]: http://bochet.gcc.biostat.washington.edu/beagle/1000_Genomes_phase3_v5a/
+
 ## Contributing
 
 Please [submit an issue][issues] to report bugs or ask questions.
