@@ -14,5 +14,3 @@ URL: https://github.com/slowkow/proxysnps
 BugReports: https://github.com/slowkow/proxysnps/issues
 Imports:
     RCurl
-Suggests:
-    myvariant
