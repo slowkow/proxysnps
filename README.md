@@ -6,7 +6,7 @@ Project][1000genomes].
 
 See the [vignette] for a usage example.
 
-## Install
+## Installation
 
 ```r
 install.packages("devtools")
