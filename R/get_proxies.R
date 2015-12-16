@@ -40,11 +40,25 @@
 #' head(d)
 #'  
 #' @export
-get_proxies<- function(chrom, pos, window_size = 1e5, pop = "EUR") {
+get_proxies <- function(
+  chrom = NA, pos = NA, query = NA, window_size = 1e5, pop = NA) {
+  
 #   chrom = "12"
 #   pos = 583090
 #   window_size = 1e5
 #   pop = "AFR"
+  
+  # Try to get the position from myvariant.info if there's a query.
+  if (is.na(chrom) && is.na(pos) && !is.na(query)) {
+    v <- myvariant::queryVariant(query)
+    if (v$total > 0) {
+      chrom <- v$hits$dbsnp$chrom[1]
+      pos <- v$hits$dbsnp$hg19$start[1]
+    } else {
+      stop(sprintf("[myvariant.info] No hits for query '%s'", query))
+    }
+  }
+  
   # Get VCF data for this genomic region.
   vcf <- get_vcf(
     chrom = chrom, 

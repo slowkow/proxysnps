@@ -4,7 +4,15 @@
 in [linkage disequilibrium][LD] (LD) with a [SNP] in the [1000 Genomes
 Project][1000genomes].
 
-See the [vignette] for a usage example.
+```r
+library(proxysnps)
+d <- get_proxies(query = "rs42")
+plot(d$POS, d$R.squared, main="rs42", xlab="Position", ylab=bquote("R"^2))
+```
+
+![rs42](https://github.com/slowkow/proxysnps/blob/master/rs42.png)
+
+See the [vignette] for more usage examples.
 
 ## Installation
 

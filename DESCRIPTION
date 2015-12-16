@@ -7,10 +7,13 @@ Description: This package implements functions to query remote VCF files. You
     can use it to find proxy SNPs in linkage disequilibrium with SNPs of
     interest or to calculate allele frequencies in different populations.
 Depends:
-    R (>= 3.1.2)
+    R (>= 3.2.1)
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/slowkow/proxysnps
 BugReports: https://github.com/slowkow/proxysnps/issues
 Imports:
     RCurl
+Suggests:
+    myvariant
+RoxygenNote: 5.0.1

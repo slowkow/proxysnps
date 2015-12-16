@@ -39,7 +39,7 @@
 #' names(vcf)
 #'  
 #' @export
-get_vcf <- function(chrom, start, end, pop = "EUR") {
+get_vcf <- function(chrom, start, end, pop = NA) {
   
   # Hard-coded superpopulations for each individual.
   superpops <- rep(
@@ -148,7 +148,9 @@ get_vcf <- function(chrom, start, end, pop = "EUR") {
   retval <- list()
   
   #load("data/sysdata.rda")
-  retval$ind <- proxysnps::ind[colnames(vcf)[10:ncol(vcf)],]
+  data("ind", package = "proxysnps", envir = environment())
+  # retval$ind <- proxysnps::ind[colnames(vcf)[10:ncol(vcf)],]
+  retval$ind <- ind[colnames(vcf)[10:ncol(vcf)],]
   
   # Separate the metadata from the genotypes.
   retval$meta <- vcf[,1:8]
