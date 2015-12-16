@@ -24,7 +24,7 @@ kable(head(d))
 |682 |    12| 584354|rs10849065  |G   |T   | 0.1875946|  0.375957| 0.687769|FALSE  |
 |711 |    12| 586815|rs58254236  |C   |T   | 0.0839637|  0.361458| 0.850726|FALSE  |
 
-## Plot the linkage disequilibirum (LD)
+## Plot the linkage disequilibrium (LD)
 
 Plot the [LD] between our SNP and all others within a 100 kilobase window:
   

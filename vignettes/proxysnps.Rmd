@@ -25,7 +25,7 @@ d <- get_proxies(chrom = "12", pos = 583090, window_size = 1e5, pop = "AFR")
 kable(head(d))
 ```
 
-## Plot the linkage disequilibirum (LD)
+## Plot the linkage disequilibrium (LD)
 
 Plot the [LD] between our SNP and all others within a 100 kilobase window:
   
