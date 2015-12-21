@@ -53,6 +53,15 @@ repository.
 > mammals, the effect of SNPs on regulatory motifs, and the effect of SNPs on
 > expression from [eQTL] studies.
 
+[LDheatmap]
+
+> Produces a graphical display, as a heat map, of measures of pairwise linkage
+> disequilibria between SNPs. Users may optionally include the physical
+> locations or genetic map distances of each SNP on the plot.
+
+Also see the [Statistical Genetics CRAN Task View][statgen] for additional
+R packages.
+
 [LocusZoom][locuszoom]
 
 > LocusZoom is a tool to plot regional association results from genome-wide
@@ -85,6 +94,8 @@ repository.
 [ENCODE]: https://www.encodeproject.org/
 
 [haploreg]: http://www.broadinstitute.org/mammals/haploreg/
+[LDheatmap]: https://cran.r-project.org/web/packages/LDheatmap/index.html
+[statgen]: https://cran.r-project.org/web/views/Genetics.html
 [locuszoom]: http://locuszoom.sph.umich.edu/locuszoom/
 [snap]: http://www.broadinstitute.org/mpg/snap/
 [tagger]: https://www.broadinstitute.org/mpg/tagger/
