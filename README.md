@@ -12,6 +12,8 @@ plot(d$POS, d$R.squared, main="rs42", xlab="Position", ylab=bquote("R"^2))
 
 ![rs42](https://github.com/slowkow/proxysnps/blob/master/rs42.png)
 
+## Usage
+
 See the [vignette] for more usage examples.
 
 ## Installation
