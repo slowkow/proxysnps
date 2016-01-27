@@ -69,7 +69,7 @@ R packages.
 > LocusZoom is a tool to plot regional association results from genome-wide
 > association scans or candidate gene studies.
 
-[SNAP][snap] (defunct)
+[SNAP][snap]
 
 > SNAP is a computer program and web-based service for the rapid retrieval of
 > linkage disequilibrium proxy SNP results given input of one or more query
