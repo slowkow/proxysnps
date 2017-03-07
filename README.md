@@ -76,7 +76,7 @@ R packages.
 > SNPs and based on empirical observations from the [International HapMap
 > Project][hapmap] and the [1000 Genomes Project][1000genomes].
 
-[SNPSNAP][snpsnap]
+[SNPsnap][snpsnap]
 
 > The SNPsnap Web server enables SNP-based enrichment analysis by providing
 > matched sets of SNPs that can be used to calibrate background expectations.
