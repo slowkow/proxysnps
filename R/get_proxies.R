@@ -60,9 +60,13 @@ get_proxies <- function(
   }
   
   # Get VCF data for this genomic region.
+  start <- floor(pos - window_size / 2)
+  if (start < 0)
+      start <- 0
+
   vcf <- get_vcf(
     chrom = chrom, 
-    start = floor(pos - window_size / 2),
+    start = start,
     end =  floor(pos + window_size / 2),
     pop = pop)
   
