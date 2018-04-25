@@ -12,6 +12,8 @@ plot(d$POS, d$R.squared, main="rs42", xlab="Position", ylab=bquote("R"^2))
 
 ![rs42](https://github.com/slowkow/proxysnps/blob/master/rs42.png)
 
+## Usage
+
 See the [vignette] for more usage examples.
 
 ## Installation
@@ -67,12 +69,20 @@ R packages.
 > LocusZoom is a tool to plot regional association results from genome-wide
 > association scans or candidate gene studies.
 
-[SNAP][snap] (defunct)
+[SNAP][snap]
 
 > SNAP is a computer program and web-based service for the rapid retrieval of
 > linkage disequilibrium proxy SNP results given input of one or more query
 > SNPs and based on empirical observations from the [International HapMap
 > Project][hapmap] and the [1000 Genomes Project][1000genomes].
+
+[SNPsnap][snpsnap]
+
+> The SNPsnap Web server enables SNP-based enrichment analysis by providing
+> matched sets of SNPs that can be used to calibrate background expectations.
+> Specifically, SNPsnap efficiently identifies sets of randomly drawn SNPs
+> that are matched to a set of query SNPs based on allele frequency, number
+> of SNPs in LD, distance to nearest gene and gene density.
 
 [Tagger][tagger]
 
@@ -98,4 +108,5 @@ R packages.
 [statgen]: https://cran.r-project.org/web/views/Genetics.html
 [locuszoom]: http://locuszoom.sph.umich.edu/locuszoom/
 [snap]: http://www.broadinstitute.org/mpg/snap/
+[snpsnap]: https://data.broadinstitute.org/mpg/snpsnap/about.html
 [tagger]: https://www.broadinstitute.org/mpg/tagger/
