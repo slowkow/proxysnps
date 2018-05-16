@@ -107,7 +107,7 @@ get_vcf <- function(chrom, start, end, pop = NA) {
   data_url = paste(sep = "",
     "http://tabix.iobio.io/?cmd=-h%20%27",
     "http://bochet.gcc.biostat.washington.edu/beagle/1000_Genomes_phase3_v5a/",
-    "vcf.b37/chr", chrom, ".1kg.phase3.v5a.vcf.gz",
+    "b37.vcf/chr", chrom, ".1kg.phase3.v5a.vcf.gz",
     "%27%20", chrom, ":", start, "-", end
   )
   
